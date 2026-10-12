@@ -28,19 +28,19 @@
 	<body>
 		<div class="container">
 		<h1>CS184/284A Fall 2026 Homework 2 Write-Up</h1>
-		<div style="text-align: center;">Names: </div>
+		<div style="text-align: center;">Names: Steven Millan-Villegas</div>
 
 		<br>
 
-		Link to webpage: (TODO) <a href="https://cs184.eecs.berkeley.edu/fa26">cs184.eecs.berkeley.edu/fa26</a>
+		Link to webpage:  <a href="https://cal-cs184-student.github.io/hw2-shaboingboing-writeup/">https://cal-cs184-student.github.io/hw2-shaboingboing-writeup</a>
 
 		<br>
 		
-		Link to GitHub repository: (TODO) <a href="https://cs184.eecs.berkeley.edu/fa26">cs184.eecs.berkeley.edu/fa26</a>
+		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw2-shaboingboing">https://github.com/cal-cs184-student/hw2-shaboingboing</a>
 
 		<figure>
-			<img src="assets/teapot.png" alt="Teapot" style="width:50%"/>
-			<figcaption>You can add images with captions!</figcaption>
+			<img src="./assets/images/1AFABDF8-A224-4140-B2E0-C1BBF45CC8FF_1_105_c.jpeg" alt="Teapot" style="width:50%"/>
+			<figcaption>Here is my dog fuzzy, she is a cute dog</figcaption>
 		</figure>
 
 		<!--
@@ -53,52 +53,199 @@
 		<h2>Section I: Bezier Curves and Surfaces</h2>
 
 		<h3>Part 1: Bezier curves with 1D de Casteljau subdivision</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		Bezier Curves with 1d de Casteljau subdivision was a pretty simple excerise where given a number of points, take each consecutive pair of points, 
+		and linearly interpolate them via the parematric equation p'(t) = (1-t)p_0 + p_1. Loop this for all consectuive points in the Bezier curve for one loop. This is sufficient for 
+		one pass of the de Casteljau algorithm. I collected the new linearly interpolated points and put them into a new vector of points which I would return for the new parametric line.
+		Down below is an example of the de Casteljau algorithm with a Bezier curve of 6 points.
 		<p>Here is an example 2x2 gridlike structure using an HTML table. Each <b>tr</b> is a row and each <b>td</b> is a column in that row. You might find this useful for framing and showing your result images in an organized fashion.</p>
 		<div style="display: flex; flex-direction: column; align-items: center;">
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="assets/teapot.png" width="400px"/>
-				  <figcaption>Caption goes here.</figcaption>
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.16.44 PM.png" width="400px"/>
+				  <figcaption>No subdivisions</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="assets/teapot.png" width="400px"/>
-				  <figcaption>Caption goes here.</figcaption>
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.16.53 PM.png" width="400px"/>
+				  <figcaption>First step</figcaption>
 				</td>
 			  </tr>
 			  <tr>
 				<td style="text-align: center;">
-				  <img src="assets/teapot.png" width="400px"/>
-				  <figcaption>Caption goes here.</figcaption>
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.17.02 PM.png" width="400px"/>
+				  <figcaption>Second Step</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="assets/teapot.png" width="400px"/>
-				  <figcaption>Caption goes here.</figcaption>
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.17.11 PM.png" width="400px"/>
+				  <figcaption>4th step</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.17.20 PM.png" width="400px"/>
+				  <figcaption>Last step</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.17.37 PM.png" width="400px"/>
+				  <figcaption>Completed Curve</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.21.12 PM.png" width="400px"/>
+				  <figcaption>Changing Points with locality</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.21.23 PM.png" width="400px"/>
+				  <figcaption>Changing parameter goes along the curve</figcaption>
 				</td>
 			  </tr>
 			</table>
 		</div>
 
 		<h3>Part 2: Bezier surfaces with separable 1D de Casteljau</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		Bicubic Bezier surfaces are made by taking 4 bezier curves and taking a point on each Bezier curve to create a new bezier curve that spans across the area covered by the 
+		four curves. To create a point that sweeps across the entire surface, we can use de Casteljau to find the four points that we are going to use from each curve for the sweeping 
+		curve that is going to span the surface. That means that for each of the four Bezier curves of n points, we can do n-1 steps of de Casteljau to get the singular paramtric point for the
+		curves. We do this n times for the n curves that make up the generalized Bezier surface for n^2 loops. When we finally have our parametric curve of n points, that itself a n point Bezier curve
+		we do a final iteration of n-1 de Casteljau loops to get a parametric point that spans the entire smooth Bezier surface. In this implementation it is just running n^2 loops for the n Bezier curves of the surface
+		to get the final curve, and then doing n more de Casteljau loops to get the final point, which follows the same general procedure but in code.
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.32.21 PM.png" width="400px"/>
+				  <figcaption>Teapot using Bezier Surfaces</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.32.41 PM.png" width="400px"/>
+				  <figcaption>Wavy Cube using Bezier Surfaces</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+			</table>
+		</div>
 		<h2>Section II: Triangle Meshes and Half-Edge Data Structure</h2>
 
 		<h3>Part 3: Area-weighted vertex normals</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		For this case, we take the given vertex and using the algorithm from the Half-Edge primer, we loop around the faces of the vertex by iterating through a series of halfEdge next and halfEdge twin loops to get each face. 
+		While we get each face we loop through each of the half edges and call their vertex attributes to get the three vertices of each face adjacent to the given vertex. We calculate their positions, and create two vectors
+		by subtracting the vertices from each other. After that we simply call Vector3D::cross on the two vectors and add them to a sum of vectors to sum them up. After we get the sum of all of the surface normals, 
+		we weight them by taking the unit normal of the summed vector by calling Vector::unit to give an averaged sum of the adjacent surface normals to the given vector.
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.39.56 PM.png" width="400px"/>
+				  <figcaption>Teapot without Phong shading, no vertex normals</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.40.04 PM.png" width="400px"/>
+				  <figcaption>Teapot with Phong shading</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.41.57 PM.png" width="400px"/>
+				  <figcaption>Cow without Phong shading, no vertex normals</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 2.42.04 PM.png" width="400px"/>
+				  <figcaption>Cow with Phong shading</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+			</table>
+		</div>
 		<h3>Part 4: Edge flip</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+		For edge flips, I used the naive approach of first getting all of the pointers for each element and reassigning them and relinking them to their new positions. 
+		For the faces I arbitrarily chose the two faces to be the new rights and lefts of the new edge. Primarily everything would revolve around the new edge, as half-edge data structures treates half-edges as 
+		the first class citizens in attributes and functions. After the faces I got my new edge plus the four original edges as well as their half-edges associated with them. 
+		For the vertices I just stored them as they were but then I had to change their vertices becuase it had new outgoing edges that would affect how their half-edge value was stored. 
+		Since nothign new was made, I had just moved around the pointers of the mesh elements for the particular edge. However the difficult parts were in making sure the vertices had the right half-edges, that is half-edges going away from the vertex and not into
+		them because it would distrupt the orientation and manifold properties of the mesh. Additionally, I had to make sure the the half-edges pointed to each other to make up a triangle, and that the vertices moved in a counterclockwise pattern
+		which was also important for ortientation. Lastly, I had to make sure to link up the half-edge of the modified given edge to match up to one of the half edges that corresponded to to either (a,d) or (d,a).
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.02.43 PM.png" width="400px"/>
+				  <figcaption>Teapot without flips</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.04.11 PM.png" width="400px"/>
+				  <figcaption>Teapot with flips</figcaption>
+				</td>
+			  </tr>
+			</table>
+			</div>
 		<h3>Part 5: Edge split</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+			For the edge split operation, once again I made pointers of all existing elements, as well as pointers for the new elements that were going to be created which were, 
+			2 new faces, three new edges, one new vertex, and six new half edges. When I had all of these new pointers I had to calculate the new point for the vertex which was 
+			just using the midpoint equation, or the average of the two points from the orignal unsplit edge. With that I had to call halfEdge::setNeighbor so set up each of the new halfEdges, since they ultimately 
+			determined the triangle. I had to account that each halfEdge of each triangle when called next would eventually lead into itselfd after 3 calls to ensure a triangle. Also that each of the halfEdges of a given triangle
+			would have their vertices align such that they all belonged to the same triangle, and that the points of each vertex followed the vertices of the triangle face in a counter clockwise pattern to preserve orientation of the 
+			original triangle pair. There were four halfEdges that were already set, that belonged to the boundaries of the triangles which were left unmodifited except for their next, and face attributes. After that I had to match up the vertices
+			to outgoing halfEdges, match faces to abritrary halfEdges corresponding to the face, and matching edges to corresponding halfEdges. Lastly I made sure to label which one of the edges were actually added by the subdivison by adding isNew = True, and labeling subdivided original edges by isTrue = false;
+			for the later subdivsion algorithm.
+			<div style="display: flex; flex-direction: column; align-items: center;">
+				<table style="width: 100%; text-align: center; border-collapse: collapse;">
+				  <tr>
+					<td style="text-align: center;">
+					  <img src="assets/images/Screenshot 2026-10-12 at 3.14.59 PM.png" width="400px"/>
+					  <figcaption>Cow without splits</figcaption>
+					</td>
+					<td style="text-align: center;">
+					  <img src="assets/images/Screenshot 2026-10-12 at 3.15.24 PM.png" width="400px"/>
+					  <figcaption>Cow with Splits</figcaption>
+					</td>
+				  </tr>
+				  <tr>
+					<td style="text-align: center;">
+					  <img src="assets/images/Screenshot 2026-10-12 at 3.18.48 PM.png" width="400px"/>
+					  <figcaption>Cow with splits and flips, basic subdivision</figcaption>
+					</td>
+				  </tr>
+				</table>
+			</div>
 		<h3>Part 6: Loop subdivision for mesh upsampling</h3>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-		<h2>(Optional) Section III: Potential Extra Credit - Art Competition: Model something Creative</h2>
+		There wre several steps to this and it would involve a total of five loops for each of the steps. Firstly, I would iterate over every vertex in the mesh
+		and label it as an orignal vertex with Vertex::isNew equal to false and would use Vertex::degree to get the degree of the given vertex. After that I would use the printNeighbors algorithm from the 
+		halfEdge primer to iterate across the neighboring vertices of the given vertex. For each of the neighboring vertices, I would grab their position and sum them up. After I summed up each of the 
+		nieghboring vertices, I would update the vertex through Vertex::newPosition and set it equal to the equation (1-n*u)*v.position + u* the sum of the neighboring positions.
+		This would happen for each vertex. Next I would iterate through each edge and add it to a vector list to store them as original edges of the mesh. I would split the edges and create a new Vertex that would be a part of mesh.
+		The newPosition of the vertex would be calculated by the equation 3/8(A+B) + 1/8(C+D). Additionally I labeled the new vertex from the edgeSplit as new so that I could use it for the flipping logic 
+		part of the algorithm. Lastly for the flipping loop, I would iterate over each edge and see if it was a new one added by the splitting loop that split every original edge in the mesh. If it were new, then I would see
+		if the edge had strictly a new vertex and an old vertex, and if so I would flip the edge. Lastly I iterated through every vertex in the new mesh and updated all of the new vertex positions be setting the vertex positions equal the the vertex.newPosition values. 
+		This concludes the subdivision algorithm.
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.34.44 PM.png" width="400px"/>
+				  <figcaption>Taurus with no subdivsion</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.34.50 PM.png" width="400px"/>
+				  <figcaption>Taurus with one level of subdivision</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.35.15 PM.png" width="400px"/>
+				  <figcaption>Taurus with two levels of subdivision</figcaption>
+				</td>
+				<td style="text-align: center;">
+					<img src="assets/images/Screenshot 2026-10-12 at 3.35.26 PM.png" width="400px"/>
+					<figcaption>Taurus with three levels of subdivisions</figcaption>
+				  </td>
+			  </tr>
+			</table>
+		</div>
+		After looping through several subdivisions of the taurus, the sharp hexagonal shap becomes a lot smoother resembling closer to a donut or a ring. 
+		The subdivison algoritm smooths out rough edges and homogenizes surfaces making them more continous or smoother but gets more expensive to run and calculate with 
+		more and more levels.
+		<!--<h2>(Optional) Section III: Potential Extra Credit - Art Competition: Model something Creative</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 		<h2>Additional Notes (please remove)</h2>
@@ -111,6 +258,6 @@
 				</ul>
 			</li>
 		</ul>
-		</div>
+		</div>-->
 	</body>
 </html>
