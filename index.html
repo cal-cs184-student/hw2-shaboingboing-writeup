@@ -244,7 +244,39 @@
 		</div>
 		After looping through several subdivisions of the taurus, the sharp hexagonal shap becomes a lot smoother resembling closer to a donut or a ring. 
 		The subdivison algoritm smooths out rough edges and homogenizes surfaces making them more continous or smoother but gets more expensive to run and calculate with 
-		more and more levels.
+		more and more levels.<br>
+		Here is a cube that is made assymetric because of loop subdivisions, I have a feeling that it is because of the ortientation of the of the edges of the faces of the cube all have a direction. 
+		So I split the face edges on each face so that every edge has no direction on the face. The result is shown below, where the cube is not spherical, but it becomes symmetric.
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.49.45 PM.png" width="400px"/>
+				  <figcaption>Cube with no subdivion or preprocessing</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.49.51 PM.png" width="400px"/>
+				  <figcaption>Cube with subdivision and no preprocessing</figcaption>
+				</td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.50.07 PM.png" width="400px"/>
+				  <figcaption>Cube with two levels subdivide no preprocess</figcaption>
+				</td>
+				<td style="text-align: center;">
+					<img src="assets/images/Screenshot 2026-10-12 at 3.50.16 PM.png" width="400px"/>
+					<figcaption>Cube with three levels subdivide no preprocess</figcaption>
+				  </td>
+			  </tr>
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="assets/images/Screenshot 2026-10-12 at 3.52.07 PM.png" width="400px"/>
+				  <figcaption>Cube with preprocces split edges and three levels subdivide</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 		<!--<h2>(Optional) Section III: Potential Extra Credit - Art Competition: Model something Creative</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
